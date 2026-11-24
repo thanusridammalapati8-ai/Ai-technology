@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nexa AI builds practical, responsible artificial intelligence for people and businesses." />
+  <title>Nexa AI — Intelligence, amplified</title>
+  <style>
+    :root {
+      --bg: #080b16; --panel: #11172a; --panel2: #151d34; --text: #f5f7ff;
+      --muted: #aab3cb; --line: rgba(255,255,255,.12); --cyan: #72e4f5;
+      --violet: #9b8cff; --green: #9bf0c5; --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+        radial-gradient(ellipse at 78% 5%, rgba(103,93,255,.18), transparent 34%),
+        radial-gradient(ellipse at 10% 28%, rgba(64,208,220,.10), transparent 32%), var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1140px, calc(100% - 44px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(18px); background: rgba(8,11,22,.78); border-bottom: 1px solid var(--line); }
+    nav { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: -.04em; font-size: 1.25rem; }
+    .logo { width: 34px; height: 34px; border-radius: 11px; background: linear-gradient(135deg,var(--cyan),var(--violet)); display: grid; place-items: center; color: #08101b; font-weight: 900; }
+    .navlinks { display: flex; gap: 27px; color: var(--muted); font-size: .92rem; }
+    .navlinks a:hover { color: white; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 12px 19px; border-radius: 999px; font-weight: 700; background: linear-gradient(110deg,var(--cyan),#b6a7ff); color: #09101c; border: 0; cursor: pointer; transition: transform .2s, filter .2s; }
+    .button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .button.ghost { color: var(--text); border: 1px solid var(--line); background: rgba(255,255,255,.04); }
+    .hero { padding: 108px 0 92px; display: grid; grid-template-columns: 1.08fr .92fr; align-items: center; gap: 55px; }
+    .eyebrow { color: var(--cyan); text-transform: uppercase; letter-spacing: .16em; font-size: .75rem; font-weight: 800; }
+    h1 { font-size: clamp(3rem, 6vw, 5.3rem); line-height: 1.02; letter-spacing: -.065em; margin: 20px 0; }
+    .gradient { background: linear-gradient(100deg,var(--cyan),#b4a7ff 75%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { max-width: 590px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
+    .hero-note { margin-top: 25px; color: #7f8ba9; font-size: .86rem; }
+    .visual { min-height: 430px; position: relative; display: grid; place-items: center; }
+    .orb { width: min(340px, 75vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d2fbff 0, #6bd9ee 12%, #6d65d9 42%, #24204c 70%, #11172a 100%); box-shadow: 0 0 100px rgba(111,119,255,.35), inset -25px -30px 65px rgba(0,0,0,.45); position: relative; }
+    .orb:before,.orb:after { content:""; position:absolute; inset:-30px; border:1px solid rgba(137,218,255,.35); border-radius:50%; transform: rotate(-25deg) scaleY(.36); }
+    .orb:after { inset:-62px; transform: rotate(35deg) scaleY(.36); border-color:rgba(174,151,255,.3); }
+    .float-card { position:absolute; padding:14px 17px; background:rgba(19,26,48,.88); border:1px solid var(--line); border-radius:16px; box-shadow:0 18px 55px rgba(0,0,0,.25); backdrop-filter:blur(12px); font-size:.85rem; }
+    .float-card strong { display:block; font-size:1.08rem; }
+    .fc-one { top: 55px; left: 0; } .fc-two { right: 0; bottom: 72px; }
+    section { padding: 84px 0; }
+    .section-head { max-width: 680px; margin-bottom: 38px; }
+    h2 { font-size: clamp(2rem,4vw,3.1rem); letter-spacing:-.05em; line-height:1.1; margin: 12px 0; }
+    .section-head p, .muted { color: var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .card { background:linear-gradient(145deg,rgba(22,30,55,.9),rgba(13,18,34,.9)); border:1px solid var(--line); border-radius:var(--radius); padding:25px; }
+    .card-icon { width:45px; height:45px; display:grid; place-items:center; border-radius:14px; background:rgba(114,228,245,.12); color:var(--cyan); font-size:1.35rem; margin-bottom:18px; }
+    .card h3 { margin:0 0 8px; font-size:1.16rem; } .card p { margin:0; color:var(--muted); font-size:.94rem; }
+    .feature-band { display:grid; grid-template-columns:1fr 1fr; gap:45px; align-items:center; padding:35px; border:1px solid var(--line); border-radius:28px; background:linear-gradient(120deg,rgba(114,228,245,.08),rgba(155,140,255,.08)); }
+    .feature-list { display:grid; gap:18px; }
+    .feature-item { display:flex; gap:14px; align-items:flex-start; }
+    .check { color:var(--green); font-size:1.15rem; font-weight:900; }
+    .tech-panel { min-height:300px; border-radius:24px; padding:26px; background: radial-gradient(circle at 50% 40%,rgba(111,105,226,.32),transparent 55%), #0d1428; border:1px solid var(--line); display:flex; flex-direction:column; justify-content:space-between; overflow:hidden; }
+    .code { font: .83rem/1.8 ui-monospace,SFMono-Regular,Consolas,monospace; color:#a9c9e9; white-space:pre-wrap; }
+    .tech-tags { display:flex; flex-wrap:wrap; gap:8px; } .tag { padding:6px 10px; border:1px solid var(--line); border-radius:999px; color:#c5cde1; font-size:.76rem; }
+    .team .card { text-align:center; }
+    .avatar { width:76px; height:76px; margin:0 auto 16px; border-radius:50%; display:grid; place-items:center; font-size:1.35rem; font-weight:800; color:#0b1120; background:linear-gradient(135deg,var(--cyan),var(--violet)); }
+    .role { color:var(--cyan); font-size:.84rem; margin-bottom:10px; }
+    .contact-wrap { display:grid; grid-template-columns:.85fr 1.15fr; gap:35px; }
+    form { display:grid; gap:13px; }
+    input,textarea { width:100%; padding:14px 15px; color:var(--text); background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:12px; font:inherit; outline:none; }
+    input:focus,textarea:focus { border-color:var(--cyan); } textarea { min-height:130px; resize:vertical; }
+    .form-message { min-height:24px; color:var(--green); font-size:.9rem; }
+    footer { padding:28px 0; border-top:1px solid var(--line); color:#8c97b1; font-size:.86rem; }
+    .footer-inner { display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    @media(max-width:850px) { .hero,.feature-band,.contact-wrap { grid-template-columns:1fr; } .hero { padding-top:75px; } .visual { min-height:360px; } .grid { grid-template-columns:repeat(2,1fr); } .navlinks { display:none; } }
+    @media(max-width:560px) { .container { width:min(100% - 30px,1140px); } section { padding:62px 0; } .grid { grid-template-columns:1fr; } .hero { gap:15px; } .fc-one { left:0; top:20px; } .fc-two { right:0; bottom:25px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#home"><span class="logo">N</span> nexa<span class="gradient">.ai</span></a>
+        <div class="navlinks">
+          <a href="#products">Products</a><a href="#solutions">Applications</a><a href="#technology">Technology</a><a href="#team">Team</a>
+        </div>
+        <a class="button" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" id="home">
+      <div>
+        <div class="eyebrow">Human-centered artificial intelligence</div>
+        <h1>Make your next idea <span class="gradient">intelligent.</span></h1>
+        <p class="lead">We turn advanced AI into practical tools that help people think clearly, work smarter, and build what comes next.</p>
+        <div class="actions"><a class="button" href="#products">Explore our products</a><a class="button ghost" href="#technology">How it works</a></div>
+        <div class="hero-note">Built for people. Designed for impact. Ready for what's next.</div>
+      </div>
+      <div class="visual" aria-label="Abstract glowing AI-inspired sphere">
+        <div class="orb"></div>
+        <div class="float-card fc-one">✦ <strong>Adaptive intelligence</strong><span class="muted">Learning from context</span></div>
+        <div class="float-card fc-two">◉ <strong>Human in control</strong><span class="muted">Responsible by design</span></div>
+      </div>
+    </div>
+
+    <section id="products">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">What we build</div><h2>AI products that move work forward.</h2><p>From everyday productivity to enterprise-scale intelligence, our product suite makes powerful technology approachable.</p></div>
+        <div class="grid">
+          <article class="card"><div class="card-icon">✧</div><h3>Nexa Assist</h3><p>Your AI thinking partner for research, writing, planning, and everyday problem-solving.</p></article>
+          <article class="card"><div class="card-icon">⌘</div><h3>Nexa Automate</h3><p>Connect repetitive workflows and let intelligent agents handle the steps in between.</p></article>
+          <article class="card"><div class="card-icon">▦</div><h3>Nexa Insights</h3><p>Turn complex business data into clear answers, useful patterns, and confident decisions.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="solutions">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">Where it helps</div><h2>One technology. Many possibilities.</h2><p>Flexible AI capabilities designed to support teams across industries and disciplines.</p></div>
+        <div class="grid">
+          <article class="card"><div class="card-icon">✎</div><h3>Content & creativity</h3><p>Accelerate ideation, draft content, summarize research, and explore new creative directions.</p></article>
+          <article class="card"><div class="card-icon">⌁</div><h3>Customer experience</h3><p>Deliver faster support with conversational assistants and context-aware knowledge tools.</p></article>
+          <article class="card"><div class="card-icon">◫</div><h3>Business operations</h3><p>Streamline document workflows, surface insights, and reduce repetitive manual tasks.</p></article>
+          <article class="card"><div class="card-icon">⚕</div><h3>Healthcare research</h3><p>Support knowledge discovery and administrative workflows with people overseeing every decision.</p></article>
+          <article class="card"><div class="card-icon">⌂</div><h3>Education</h3><p>Make learning more adaptive with study support, explanations, and personalized practice.</p></article>
+          <article class="card"><div class="card-icon">⟡</div><h3>Product development</h3><p>Help engineering and product teams prototype, test ideas, and move from concept to launch.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="technology">
+      <div class="container">
+        <div class="feature-band">
+          <div><div class="eyebrow">Our approach</div><h2>Powerful under the hood. Simple on the surface.</h2><p class="muted">We combine modern machine learning with thoughtful product design, strong security practices, and human oversight.</p>
+            <div class="feature-list">
+              <div class="feature-item"><span class="check">✓</span><div><strong>Context-aware models</strong><div class="muted">Systems designed to understand the task, not just the prompt.</div></div></div>
+              <div class="feature-item"><span class="check">✓</span><div><strong>Responsible AI practices</strong><div class="muted">Transparency, evaluation, and human review where it matters.</div></div></div>
+              <div class="feature-item"><span class="check">✓</span><div><strong>Built to integrate</strong><div class="muted">Flexible APIs and workflows that fit existing tools.</div></div></div>
+            </div>
+          </div>
+          <div class="tech-panel">
+            <div class="code">// The Nexa intelligence stack
+
+const result = await nexa.ai({
+  context: yourWorkflow,
+  model: "adaptive",
+  safety: "built-in",
+  humanReview: true
+});
+
+return insight(result);</div>
+            <div class="tech-tags"><span class="tag">Machine learning</span><span class="tag">Natural language</span><span class="tag">Computer vision</span><span class="tag">AI agents</span><span class="tag">Data intelligence</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team" class="team">
+      <div class="container">
+        <div class="section-head"><div class="eyebrow">The people behind the ideas</div><h2>A team building with purpose.</h2><p>Our multidisciplinary team brings research, engineering, and product thinking together.</p></div>
+        <div class="grid">
+          <article class="card"><div class="avatar">AM</div><h3>Alex Morgan</h3><div class="role">Co-founder & CEO</div><p>Connecting ambitious ideas with meaningful outcomes.</p></article>
+          <article class="card"><div class="avatar">SK</div><h3>Samira Khan</h3><div class="role">Head of AI Research</div><p>Exploring the frontier of useful, reliable intelligence.</p></article>
+          <article class="card"><div class="avatar">JL</div><h3>Jordan Lee</h3><div class="role">VP of Product</div><p>Making complex technology feel effortless to use.</p></article>
+        </div>
+        <p class="muted" style="font-size:.82rem;margin-top:14px">Team profiles are illustrative placeholders—replace names and bios with your actual team.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-wrap">
+          <div><div class="eyebrow">Start a conversation</div><h2>Let's build something meaningful.</h2><p class="muted">Have a project, a question, or an idea you'd like to explore? Tell us a little about it and we'll be in touch.</p><p>✉ hello@nexa.ai<br>⌖ Hyderabad, India</p></div>
+          <div class="card">
+            <form id="contactForm">
+              <input type="text" name="name" placeholder="Your name" aria-label="Your name" required />
+              <input type="email" name="email" placeholder="Email address" aria-label="Email address" required />
+              <input type="text" name="subject" placeholder="What would you like to discuss?" aria-label="Subject" />
+              <textarea name="message" placeholder="Tell us about your project..." aria-label="Message" required></textarea>
+              <button class="button" type="submit">Send message ↗</button>
+              <div class="form-message" id="formMessage" role="status"></div>
+            </form>
+            <p class="muted" style="font-size:.78rem;margin:0">Demo form: connect it to your email service or backend to receive submissions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Nexa AI. All rights reserved.</span><span>Intelligence, amplified.</span></div></footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      document.getElementById('formMessage').textContent = 'Thanks! This demo form is ready to be connected to your email or backend.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
